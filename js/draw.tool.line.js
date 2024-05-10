@@ -38,6 +38,27 @@
         if (drawing) {
             drawing = false;
             if (element.attr("x1") != element.attr("x2") && element.attr("y1") != element.attr("y2")) {
+                var svgPoint = svgDoc.transformPoint(event);
+                var endPoint = {
+                    x: svgPoint.x,
+                    y: svgPoint.y
+                };
+                
+                // Calculate the angle of the line
+                var angle = Math.atan2(endPoint.y - startPoint.y, endPoint.x - startPoint.x) * 180 / Math.PI;
+                
+                // Define the arrowhead element
+                var arrowhead = parent.marker(10, 10, function(add) {
+                    add.path("M0,0 L10,5 L0,10 z").fill(GlobalStatus.getFontColor());
+                });
+                
+                // Append the arrowhead to the line
+                element.marker('end', arrowhead);
+                
+                element.plot([
+                    [startPoint.x, startPoint.y],
+                    [endPoint.x, endPoint.y]
+                ]);
                 element.pickable();
             } else {
                 parent.removeElement(element);
@@ -45,6 +66,7 @@
         }
         return false;
     }
+    
 
     var listener = {
         mousedown: mousedown,
