@@ -7,12 +7,18 @@
     var points = [];
 
     function mousedown(event) {
-        console.log('polyline mousedown');
+        console.log('polyline mousedown', event);
         if (!drawing) {
             drawing = true;
             var currPoint = svgDoc.transformPoint(event);
             points.push([currPoint.x, currPoint.y]);
+
+            console.log('polyline mousedown drawing');
+
+            parent.circle(24).cx(currPoint.x).cy(currPoint.y).addClass('point-circle').fill(GlobalStatus.getFontColor());
+
         }
+
         return false;
     }
 
@@ -58,6 +64,8 @@
             var y = svgPoint.y;
             points.push([x, y]);
             element.plot(points);
+
+            parent.circle(24).cx(x).cy(y).addClass('point-circle').fill(GlobalStatus.getFontColor());
 
         }
         return false;

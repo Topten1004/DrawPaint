@@ -11,8 +11,8 @@
 
 html {
   font-family: Georgia, "Times New Roman", 
-               "Microsoft YaHei", "微软雅黑", 
-               STXihei, "华文细黑", 
+               "Microsoft YaHei", 
+               STXihei,  
                serif;
   line-height: 1.15; /* 2 */
   -ms-text-size-adjust: 100%; /* 3 */
@@ -460,4 +460,16 @@ template {
 
 [hidden] {
   display: none;
+}
+
+.solid-line {
+  border-bottom: 2px solid black; /* Solid line */
+}
+
+.dot-line {
+  border-bottom: 2px dotted black; /* Dotted line */
+}
+
+.dashed-line {
+  border-bottom: 2px dashed black; /* Dashed line */
 }

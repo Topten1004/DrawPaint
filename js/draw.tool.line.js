@@ -10,10 +10,14 @@
         if (!drawing) {
             drawing = true;
             startPoint = svgDoc.transformPoint(event);
-            element = parent.line(startPoint.x, startPoint.y, startPoint.x, startPoint.y).fill(GlobalStatus.getFillColor()).style("fill-opacity", GlobalStatus.getFillOpacity()).stroke({
-                width: GlobalStatus.getLineSize(),
-                color: GlobalStatus.getFontColor()
-            });
+            element = parent.line(startPoint.x, startPoint.y, startPoint.x, startPoint.y)
+                           .fill(GlobalStatus.getFillColor())
+                           .style("fill-opacity", GlobalStatus.getFillOpacity())
+                           .stroke({
+                                width: GlobalStatus.getLineSize(),
+                                color: GlobalStatus.getFontColor(),
+                                dasharray: "1,3" // Set the line style to dotted
+                           });
         }
         return false;
     }
@@ -43,18 +47,18 @@
                     x: svgPoint.x,
                     y: svgPoint.y
                 };
-                
+
                 // Calculate the angle of the line
                 var angle = Math.atan2(endPoint.y - startPoint.y, endPoint.x - startPoint.x) * 180 / Math.PI;
-                
+
                 // Define the arrowhead element
                 var arrowhead = parent.marker(10, 10, function(add) {
                     add.path("M0,0 L10,5 L0,10 z").fill(GlobalStatus.getFontColor());
                 });
-                
+
                 // Append the arrowhead to the line
                 element.marker('end', arrowhead);
-                
+
                 element.plot([
                     [startPoint.x, startPoint.y],
                     [endPoint.x, endPoint.y]
@@ -66,7 +70,7 @@
         }
         return false;
     }
-    
+
 
     var listener = {
         mousedown: mousedown,

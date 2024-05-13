@@ -2,6 +2,7 @@ var GlobalStatus = {
 	defaultFontColor: "#0073c6",
 	defaultFillColor: "#ececec",
 	defaultLineSize: "2",
+	defaultLineType: "Solid",
 	elementList: [],
 	pickedElementList: [],
 	isPicked: function() {
@@ -21,6 +22,9 @@ var GlobalStatus = {
 	},
 	getLineSize: function() {
 		return $("#lineSize dd.active").attr("data-line-size");
+	},
+	getLineType: function() {
+		return $("#lineType dd.active").attr("data-line-type");
 	},
 	getFillOpacity: function() {
 		var fillOpacity = "0.0";
