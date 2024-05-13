@@ -133,7 +133,7 @@
                     <div class="board-panel font">
                         <div class="board-form clearfix">
                             <div class="form-row">
-                                <span class="text-tool handle_btn" id="tool_text"><img src="style/img/icon-7.png" alt="Insert text" title="Insert tex" /></span>
+                                <span class="text-tool handle_btn" id="tool_text"><img src="style/img/icon-7.png" alt="Insert text" title="Insert text" /></span>
                                 <select class="chosen-select" style="width:110px;" id="fontFamily">
                                     <option value="SimSun" style="font-family:SimSun;" selected="selected">SimSun</option>
                                     <option value="SimHei" style="font-family:SimHei;">SimHei</option>
@@ -386,7 +386,7 @@
         $("#tool_rect").on("click", function() {
             resetCurrentDrawTool();
             currentDrawTool = new DrawTool.Rect(svgDoc);
-        });
+        });       
         $("#tool_ellipse").on("click", function() {
             resetCurrentDrawTool();
             currentDrawTool = new DrawTool.Ellipse(svgDoc);
