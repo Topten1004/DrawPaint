@@ -57,7 +57,7 @@
                                 <li class="handle_btn" id="tool_line"><img src="style/img/icon-11.png" alt="Straight line" title="Straight line" /></li>
                                 <li class="handle_btn" id="tool_polyline"><img src="style/img/icon-12.png" alt="Polyline" title="Polyline" /></li>
                             </ul>
-                            <ul class="shape-right">
+                            <ul class="shape-middle">
                                 <li class="icon-size-3 js-lineStyle">
                                     <img src="style/img/icon-13.png" alt="Thickness" title="Thickness" />
                                     <dl class="line-style" id="lineSize">
@@ -74,7 +74,12 @@
                                             <div class="line-inner"><span></span></div>
                                         </dd>
                                     </dl>
-                                    <dl class="line-style" id="lineType">
+                                </li>
+                            </ul>
+                            <ul class="shape-right">
+                                <li class="icon-size-3 js-lineType">
+                                    <img src="style/img/icon-13.png" alt="LineType" title="LineType" />
+                                    <dl class="line-type" id="lineType">
                                         <dd class="solid active" data-line-type="solid">
                                             <div class="line-inner solid-line"><span></span></div>
                                         </dd>
@@ -234,7 +239,7 @@
                     _obj.hide();
                     $(this).removeClass('active');
                 }
-            })
+            })           
             $(document).bind('click', function(e) {
                 var target = $(e.target);
                 if (target.closest('.js-lineStyle').length == 0) {
@@ -247,6 +252,38 @@
                 $(this).addClass("active");
             });
             // -----------------------lineSize end-----------------------
+
+            // -----------------------lineType start-----------------------
+            $('.js-lineType').on('click', function() {
+                var _obj = $(this).find('dl');
+                if (_obj.css('display') == 'none') {
+                    _obj.show();
+                    $(this).addClass('active');
+                } else {
+                    _obj.hide();
+                    $(this).removeClass('active');
+                }
+            })
+            
+            $(document).bind('click', function(e) {
+                var target = $(e.target);
+                if (target.closest('.js-lineType').length == 0) {
+                    $('.js-lineType').find('dl').hide();
+                    $('.js-lineType').removeClass('active');
+                }
+            })
+
+            $("#lineType dd").on("click", function() {
+                $("#lineType dd").removeClass("active");
+                $(this).addClass("active");
+            });
+
+            $("#lineType dd").on("click", function() {
+                $("#lineType dd").removeClass("active");
+                $(this).addClass("active");
+            });
+
+            // -----------------------lineType end-----------------------
 
             // -----------------------color start-----------------------
             $(".color-left li").on("click", function() {
@@ -280,8 +317,8 @@
             });
 
             $("#customColor").spectrum({
-                cancelText: "取消",
-                chooseText: "确定",
+                cancelText: "Cancel",
+                chooseText: "Sure",
                 allowEmpty: true,
                 change: function(tinycolor) {
                     if ($("#fill_color").hasClass("active")) {

@@ -16,10 +16,26 @@
                            .stroke({
                                 width: GlobalStatus.getLineSize(),
                                 color: GlobalStatus.getFontColor(),
-                                dasharray: "1,3" // Set the line style to dotted
+                                dasharray: getDashArray() // Set the line style based on line type
                            });
         }
         return false;
+    }
+
+    function getDashArray() {
+      
+        var lineType = GlobalStatus.getLineType();
+
+        switch (lineType) {
+            case 'solid':
+                return null; // No dasharray for solid line
+            case 'dashed':
+                return "5,5"; // Dasharray for dashed line
+            case 'dot':
+                return "1,3"; // Dasharray for dotted line
+            default:
+                return null;
+        }
     }
 
     function mousemove(event) {
@@ -52,7 +68,7 @@
                 var angle = Math.atan2(endPoint.y - startPoint.y, endPoint.x - startPoint.x) * 180 / Math.PI;
 
                 // Define the arrowhead element
-                var arrowhead = parent.marker(10, 10, function(add) {
+                var arrowhead = parent.marker(7.5, 7.5, function(add) {
                     add.path("M0,0 L10,5 L0,10 z").fill(GlobalStatus.getFontColor());
                 });
 

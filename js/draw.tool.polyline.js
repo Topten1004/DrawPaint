@@ -22,6 +22,22 @@
         return false;
     }
 
+    function getDashArray() {
+      
+        var lineType = GlobalStatus.getLineType();
+
+        switch (lineType) {
+            case 'solid':
+                return null; // No dasharray for solid line
+            case 'dashed':
+                return "5,5"; // Dasharray for dashed line
+            case 'dot':
+                return "1,3"; // Dasharray for dotted line
+            default:
+                return null;
+        }
+    }
+    
     function mousemove(event) {
         console.log('polyline mousemove');
         if (drawing) {
@@ -34,7 +50,8 @@
             if (!element) {
                 element = parent.polyline(points).fill(GlobalStatus.getFillColor()).style("fill-opacity", GlobalStatus.getFillOpacity()).stroke({
                     width: GlobalStatus.getLineSize(),
-                    color: GlobalStatus.getFontColor()
+                    color: GlobalStatus.getFontColor(),
+                    dasharray: getDashArray() // Set the line style based on line type
                 });
             } else {
                 element.plot(pointsTmp);

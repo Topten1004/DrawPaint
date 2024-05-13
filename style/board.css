@@ -7,7 +7,7 @@
 }
 
 .container-wrap{
-	width:1200px;
+	width:1260px;
 	margin:0 auto;
 }
 
@@ -125,7 +125,8 @@
 	width:144px;
 }
 .board-panel.shape{
-	width:165px;
+	width:222px;
+	text-align: center;
 }
 .board-panel.layer{
 	width:72px;
@@ -142,57 +143,106 @@
 
 /* 形状
 -------------------------------------------------------------- */
-.shape-left{
-	float:left;
-	width:108px;
-}
-.shape-right{
-	position:absolute;
-	right:0;
-	top:0;
-	width:57px;
+.shape-left {
+    float: left;
+    width: 108px;
 }
 
-.shape-right .line-style{
+.shape-middle {
+    margin: 0 auto; /* This will center the element */
+    width: 165px;
+}
+
+.shape-right {
+    position: absolute;
+    right: 0;
+    top: 0;
+    width: 57px;
+}
+
+.shape-middle .line-style{
 	padding:10px 1px;
 	width:106px;
 	border:1px solid #d2d4d1;
 	background:#fff;
 	display:none;
 }
-.shape-right .line-style dd{
+.shape-middle .line-style dd{
 	display:table;
 	height:16px;
 	width:106px;
 	overflow:hidden;
 }
-.shape-right .line-style dd:hover{
+.shape-middle .line-style dd:hover{
 	background:url(img/board/line-style_hover.png) no-repeat;
 }
 
-.shape-right .line-style dd.active{
+.shape-middle .line-style dd.active{
 	background:url(img/board/line-style_active.png) no-repeat;
 }
-.shape-right .line-style .line-inner{
+.shape-middle .line-style .line-inner{
 	display: table-cell;
     vertical-align: middle;
 }
 
-.shape-right .line-style span{
+.shape-middle .line-style span{
 	display:block;
 	background:#5b5b5b;
 }
 
-.shape-right .line-style .h2 span{
+.shape-middle .line-style .h2 span{
 	height:2px;
 }
-.shape-right .line-style .h3 span{
+.shape-middle .line-style .h3 span{
 	height:3px;
 }
-.shape-right .line-style .h4 span{
+.shape-middle .line-style .h4 span{
 	height:4px;
 }
-.shape-right .line-style .h5 span{
+.shape-middle .line-style .h5 span{
+	height:5px;
+}
+
+.shape-right .line-type{
+	padding:10px 1px;
+	width:106px;
+	border:1px solid #d2d4d1;
+	background:#fff;
+	display:none;
+}
+.shape-right .line-type dd{
+	display:table;
+	height:16px;
+	width:106px;
+	overflow:hidden;
+}
+.shape-right .line-type dd:hover{
+	background:url(img/board/line-style_hover.png) no-repeat;
+}
+
+.shape-right .line-type dd.active{
+	background:url(img/board/line-style_active.png) no-repeat;
+}
+.shape-right .line-type .line-inner{
+	display: table-cell;
+    vertical-align: middle;
+}
+
+.shape-right .line-type span{
+	display:block;
+	background:#5b5b5b;
+}
+
+.shape-right .line-type .h2 span{
+	height:2px;
+}
+.shape-right .line-type .h3 span{
+	height:3px;
+}
+.shape-right .line-type .h4 span{
+	height:4px;
+}
+.shape-right .line-type .h5 span{
 	height:5px;
 }
 
