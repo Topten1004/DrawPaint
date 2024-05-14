@@ -37,7 +37,7 @@
                 return null;
         }
     }
-    
+
     function mousemove(event) {
         console.log('polyline mousemove');
         if (drawing) {
@@ -81,12 +81,14 @@
             var y = svgPoint.y;
             points.push([x, y]);
             element.plot(points);
-
-            parent.circle(24).cx(x).cy(y).addClass('point-circle').fill(GlobalStatus.getFontColor());
-
+            
+            // Create a circle within the same SVG group as the polyline
+            var circle = parent.circle(24).cx(x).cy(y).addClass('point-circle').fill(GlobalStatus.getFontColor());
+            element.add(circle);
         }
         return false;
     }
+    
 
     var listener = {
         mousedown: mousedown,

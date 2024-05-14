@@ -361,6 +361,7 @@
     <script src="js/draw.tool.ellipse.js"></script>
     <script src="js/draw.tool.circle.js"></script>
     <script src="js/draw.tool.line.js"></script>
+    <script src="js/draw.tool.text.js"></script>
     <script src="js/draw.tool.polyline.js"></script>
     <script src="js/draw.tool.pick.js"></script>
     <script src="js/handle.border.js"></script>
@@ -386,7 +387,11 @@
         $("#tool_rect").on("click", function() {
             resetCurrentDrawTool();
             currentDrawTool = new DrawTool.Rect(svgDoc);
-        });       
+        });
+        $("#tool_text").on("click", function() {
+            resetCurrentDrawTool();
+            currentDrawTool = new DrawTool.Text(svgDoc);
+        });
         $("#tool_ellipse").on("click", function() {
             resetCurrentDrawTool();
             currentDrawTool = new DrawTool.Ellipse(svgDoc);

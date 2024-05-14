@@ -64,9 +64,6 @@
                     y: svgPoint.y
                 };
 
-                // Calculate the angle of the line
-                var angle = Math.atan2(endPoint.y - startPoint.y, endPoint.x - startPoint.x) * 180 / Math.PI;
-
                 // Define the arrowhead element
                 var arrowhead = parent.marker(5, 5, function(add) {
                     add.path("M0,0 L5,2.5 L0,5 z").fill(GlobalStatus.getFontColor());
@@ -79,6 +76,7 @@
                     [startPoint.x, startPoint.y],
                     [endPoint.x, endPoint.y]
                 ]);
+
                 element.pickable();
             } else {
                 parent.removeElement(element);
