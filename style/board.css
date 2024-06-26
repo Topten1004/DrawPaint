@@ -119,26 +119,23 @@
 	color:#999;
 }
 .board-panel.tool{
-	width:192px;
+	width:210px;
 }
 .board-panel.tool ul{
-	width:144px;
+	width:160px;
 }
 .board-panel.shape{
-	width:222px;
+	width:240px;
 	text-align: center;
 }
 .board-panel.layer{
-	width:72px;
+	width:90px;
 }
 .board-panel.color{
 	width:370px;
 }
 .board-panel.font{
 	width:150px;
-}
-.board-panel.size{
-	width:82px;
 }
 
 /* 形状
